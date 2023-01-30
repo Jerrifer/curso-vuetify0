@@ -1,32 +1,52 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-toolbar app class="info">
+
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+        <v-toolbar-title>Vuetify</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+        <v-btn class="success">
+          Ingreso
+        </v-btn>
+        <v-btn class="error">
+          Salir
+        </v-btn>
+
+    </v-toolbar>
+
+    <v-navigation-drawer
+        app
+        class="secondary" 
+        v-model="drawer" 
+        temporary>
+
+        <v-layout mt-4 column align-center>
+          <v-flex>
+            <v-avatar>
+              <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="">
+            </v-avatar>
+          </v-flex>
+          <v-flex>
+            <p class="white--text mt-3 headline">Juan Lopez</p>
+          </v-flex>
+        </v-layout>
+
+    </v-navigation-drawer>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    drawer: true
+  }),
+};
+</script>
