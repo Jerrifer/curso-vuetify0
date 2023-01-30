@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import GridView from '../views/GridView'
 import ButtonsView from '../views/ButtonsView'
-
+import TasksView from '../views/TasksView'
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,6 +29,11 @@ const routes = [
     path: '/buttons',
     name: 'buttons',
     component: ButtonsView
+  },
+  {
+    path: '/tasks',
+    name: 'tasks',
+    component: TasksView
   }
 ]
 
